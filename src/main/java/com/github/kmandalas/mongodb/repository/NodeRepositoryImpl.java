@@ -23,7 +23,7 @@ public class NodeRepositoryImpl implements NodeGraphLookupRepository {
   }
 
   @Override
-  public Optional<List<Node>> getSubTree(int changesetId, int masterId) throws Exception {
+  public Optional<List<Node>> getSubTree(int changesetId, int masterId) {
     final Criteria byMasterId = new Criteria("masterId").is(masterId);
     final Criteria byChangesetId = new Criteria("changesetId").is(changesetId);
     final MatchOperation matchStage = Aggregation.match(byChangesetId.andOperator(byMasterId));

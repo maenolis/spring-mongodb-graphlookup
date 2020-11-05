@@ -32,7 +32,7 @@ class NodeServiceImplTest {
         node.setMasterId(NodeService.DEFAULT_ROOT_NODE_ID);
         node.setName("name1");
 
-        when(nodeRepository.findDistinctByChangesetId(1)).thenReturn(Optional.of(Collections.singletonList(node)));
+        when(nodeRepository.findDistinctByChangesetId(1)).thenReturn(Collections.singletonList(node));
 
         final TreeNode fullTree = nodeService.getFullTree(1);
         assertThat(fullTree)

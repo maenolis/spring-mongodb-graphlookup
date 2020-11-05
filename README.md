@@ -53,6 +53,12 @@ Run the application normally with:
 docker-compose up
 ```
 
+Run the application for development with:
+```
+docker-compose -f docker-compose-dev.yml up -d
+mvn spring-boot:run
+```
+
 Stop the application with:
 ```
 docker-compose down

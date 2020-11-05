@@ -2,6 +2,7 @@
 package com.github.kmandalas.mongodb.document;
 
 import com.github.kmandalas.mongodb.enumeration.EntityType;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"masterId"})
 public class Node {
 
   @Id
@@ -38,5 +40,7 @@ public class Node {
   private List<Integer> parentId;
 
   private List<Node> children;
+
+
 
 }

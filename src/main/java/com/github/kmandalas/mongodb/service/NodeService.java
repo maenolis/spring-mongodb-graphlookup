@@ -1,5 +1,6 @@
 package com.github.kmandalas.mongodb.service;
 
+import com.github.kmandalas.mongodb.exception.NotFoundException;
 import com.github.kmandalas.mongodb.object.TreeNode;
 import org.springframework.util.CollectionUtils;
 
@@ -11,9 +12,13 @@ public interface NodeService {
 
     int DEFAULT_ROOT_NODE_ID = -1;
 
-    TreeNode getFullTree(int changesetId) throws Exception;
+    TreeNode getFullTree(int changesetId) throws NotFoundException;
 
-    TreeNode getSubTree(int changesetId, int nodeId) throws Exception;
+    void deleteFullTree(int changesetId) throws NotFoundException;
+
+    TreeNode getSubTree(int changesetId, int nodeId) throws NotFoundException;
+
+    void deleteSubTree(int changesetId, int nodeId) throws NotFoundException;
 
     static TreeNode assembleTree(final List<TreeNode> nodes, final int rootNodeId) {
         final Map<Integer, TreeNode> mapTmp = new LinkedHashMap<>();
